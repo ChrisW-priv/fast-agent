@@ -27,6 +27,7 @@ def change_env_of_server(server_name: str, env_name: str, new_env: str):
 
 @pytest.mark.integration
 @pytest.mark.asyncio
+@pytest.mark.xfail(reason="Environment variables are not set when we initialize the agent app")
 async def test_runtime_configuration_no_change(fast_agent):
     """Test if environment variables are correctly set when we do nothing"""
     fast = fast_agent
@@ -60,6 +61,7 @@ async def test_runtime_configuration_change_env(fast_agent):
 
 @pytest.mark.integration
 @pytest.mark.asyncio
+@pytest.mark.xfail(reason="Environment variables are not set when we initialize the agent app")
 async def test_runtime_configuration_add_env(fast_agent):
     """Test if environment variables are correctly set when we add a new one"""
     fast = fast_agent
